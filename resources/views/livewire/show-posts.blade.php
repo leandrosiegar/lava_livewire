@@ -1,21 +1,16 @@
 <div>
 
 
-    <!-- Navigation Links -->
-    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-        <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-            {{ __('Dashboard') }}
-        </x-jet-nav-link>
-    </div>
+
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       
         <x-tablelsg>
-            <div class="px-6 py-4">
+            <div class="px-6 py-4 flex items-center">
                <!-- <input type="text" wire:model="search"> -->
                <!-- en vez de usar un input normal usamos los de jetstream más bonitos -->
-               <x-jet-input class="w-full" placeholder="buscar" type="text" wire:model="search" />
-
+               <x-jet-input class="flex-1 mr-4" placeholder="buscar" type="text" wire:model="search" />
+                @livewire('create-post')
             </div>
 
             @if ($posts->count())
@@ -23,7 +18,7 @@
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
-                    <th scope="col" wire:click="ordenar('id')" class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th scope="col" wire:click="ordenar('id')" class="w-24 cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         ID
                         @if ($sort == "id")
                             @if ($direction == "asc")
