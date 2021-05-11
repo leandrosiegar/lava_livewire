@@ -7,6 +7,8 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -19,6 +21,7 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -44,5 +47,16 @@
         @stack('modals')
 
         @livewireScripts
+
+        <script>
+            Livewire.on("showMensaje", function(mensaje) {
+                Swal.fire({
+                    title: 'CORRECTO',
+                    text: mensaje,
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                    })
+            })
+        </script>
     </body>
 </html>
