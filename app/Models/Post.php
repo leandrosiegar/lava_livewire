@@ -9,5 +9,6 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content'];
+    // para poder hacer inserciones masivas
+    protected $fillable = ['title', 'content', 'image'];
 }
