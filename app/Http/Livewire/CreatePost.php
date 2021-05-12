@@ -7,18 +7,18 @@ use App\Models\Post;
 
 class CreatePost extends Component
 {
-    public $abrir = false;
+    public $abrir = true;
 
     public $title;
     public $content;
 
     protected $rules = [
-        'title' => 'required|max:10',
-        'content' => 'required|min:100'
+        'title' => 'required',
+        'content' => 'required'
     ];
 
     public function updated($prop_name) { // a updated se llama siempre q se modifica cualquiera de las propiedades definidas
-        $this->validateOnly($prop_name);
+       //  $this->validateOnly($prop_name);
 
     }
 
