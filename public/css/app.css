@@ -33403,6 +33403,40 @@ select {
   width: 100%;
 }
 
+.boton {
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-weight: 700;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.botonVerde {
+  --tw-bg-opacity: 1;
+  background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
+}
+
+.botonVerde:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
+}
+
+/*
+.btn-red {
+    @apply bg-red-600 hover:bg-red-500;
+}
+
+.btn-blue {
+    @apply bg-blue-600 hover:bg-blue-500;
+}
+
+
+*/
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

@@ -10,7 +10,7 @@ class CreatePost extends Component
 {
     use withFileUploads;
 
-    public $abrir = true;
+    public $abrir = false;
 
     public $title;
     public $content;

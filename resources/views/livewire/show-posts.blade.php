@@ -4,7 +4,7 @@
 
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      
+
         <x-tablelsg>
             <div class="px-6 py-4 flex items-center">
                <!-- <input type="text" wire:model="search"> -->
@@ -60,34 +60,33 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach ($posts as $post) 
+                    @foreach ($posts as $post)
                         <tr>
-                        
-                        <td class="px-6 py-4">
-                            <div class="text-sm text-gray-900">{{ $post->id }}</div>
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="text-sm text-gray-900">{{ $post->title }}</div>
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="text-sm text-gray-900">{{ $post->content }}</div>
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                        </td>
+                            <td class="px-6 py-4">
+                                <div class="text-sm text-gray-900">{{ $post->id }}</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="text-sm text-gray-900">{{ $post->title }}</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="text-sm text-gray-900">{{ $post->content }}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                @livewire('edit-post',['post' => $post], key($post->id))
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
 
-            @else 
+            @else
                 <div class="px-6 py-4">
                     No existe ningún registro con esos parámetros de búsqueda
                 </div>
             @endif
         </x-tablelsg>
-      
+
 
     </div>
- 
+
 </div>
