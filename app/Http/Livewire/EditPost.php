@@ -8,7 +8,7 @@ use Livewire\withFileUploads;
 
 use Illuminate\Support\Facades\Storage;
 
-class EditPost extends Component
+class xxxEditPost extends Component
 {
     use withFileUploads;
 
@@ -22,11 +22,11 @@ class EditPost extends Component
         'post.content' => 'required'
     ];
 
-    public function mount(Post $post) {
+    public function xxxmount(Post $post) {
         $this->post = $post;
     }
 
-    public function actualizar() {
+    public function XXxactualizar() {
         $this->validate();
 
         if ($this->image) {
