@@ -1,19 +1,26 @@
-<div>
-
-
-
-
+<div wire:init="cargarPost"> <!-- esto es de cargarPost es para q se ejecute primero lo q menos peso y una vez cargado ya llama a esta función -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
         <x-tablelsg>
             <div class="px-6 py-4 flex items-center">
                <!-- <input type="text" wire:model="search"> -->
+               <div class="flex item-center">
+                   <span>Mostrar</span>
+                   <select wire:model="cant" class="mx-2 form-control">
+                       <option value="10">10</option>
+                       <option value="25">25</option>
+                       <option value="50">50</option>
+                       <option value="100">100</option>
+                   </select>
+                   <span>Entradas</span>
+
+               </div>
                <!-- en vez de usar un input normal usamos los de jetstream más bonitos -->
-               <x-jet-input class="flex-1 mr-4" placeholder="buscar" type="text" wire:model="search" />
+               <x-jet-input class="flex-1 mx-4" placeholder="buscar" type="text" wire:model="search" />
                 @livewire('create-post')
             </div>
 
-            @if ($posts->count())
+            @if (count($posts))
 
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
@@ -86,6 +93,12 @@
                 </tbody>
             </table>
 
+            @if ($posts->hasPages()) <!-- si al menos tiene dos pages q muestre paginación -->
+                <div class="px-6 py-3">
+                    {{ $posts->links() }}
+                </div>
+            @endif
+
             <!-- crear el modal para abrir -->
             <x-jet-dialog-modal wire:model="abrir_modal_edit">
                 <x-slot name='title'>
@@ -143,11 +156,7 @@
                 </div>
             @endif
 
-            @if ($posts->hasPages()) <!-- si al menos tiene dos pages q muestre paginación -->
-                <div class="px-6 py-3">
-                    {{ $posts->links() }}
-                </div>
-            @endif
+
 
         </x-tablelsg>
 
