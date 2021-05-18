@@ -30,9 +30,17 @@
 
             </div>
 
-            <div class="mb-4">
+            <!-- wire:ignore hace que cuando se renderice de nuevo esta página no se renderice esta zona -->
+            <!-- es bueno hacerlo en casos como este para q no se pierda el ckeditor -->
+            <div class="mb-4" wire:ignore>
                 <x-jet-label value="Contenido del post" />
-                <textarea rows=6 class="form-tipo-lsg"  wire:model="content"></textarea>
+                <textarea
+                    id="editorLSG"
+
+                    rows=6
+                    class="form-tipo-lsg"
+                    wire:model="content">
+                </textarea>
                 <x-jet-input-error for="content" />
             </div>
 
@@ -60,4 +68,23 @@
         </x-slot>
 
     </x-jet-dialog-modal>
+
+    @push('js')
+        <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+
+        <script>
+            ClassicEditor
+                .create( document.querySelector('#editorLSG'))
+                .then(function(editorLSG) {
+                    // hacer que cada vez q haya un cambio en el editor se modif el valor del campo content
+                    editorLSG.model.document.on('change:data', () => {
+                        @this.set('content', editorLSG.getData());
+                    })
+                })
+                .catch( error => {
+                    console.error( error );
+                } );
+        </script>
+
+    @endpush
 </div>

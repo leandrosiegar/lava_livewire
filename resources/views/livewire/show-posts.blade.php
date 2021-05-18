@@ -150,6 +150,9 @@
                 </x-slot>
             </x-jet-dialog-modal>
 
+
+
+
             @else
                 <div class="px-6 py-4">
                     No existe ningún registro con esos parámetros de búsqueda
